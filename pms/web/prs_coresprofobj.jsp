@@ -14,13 +14,13 @@
 <%@include file="header.jsp" %>
 <%@page import="java.sql.*,java.util.*"%>
 <%@page import="pms.prs_coresprofobj"%>
-<h1 class="h3 mb-4 text-gray-800">User Setting</h1>
+<h1 class="h3 mb-4 text-gray-800">prs_coresprofobj</h1>
 <div class="row">
 <div class="col-lg-12"> 
 <%
 String usercode="";
 String correspondence="";
-String profile="";
+String 	profile="";
 String objective="";
 String id=request.getParameter("id").toString();
     if(request.getParameter("option").toString().contains("edit"))
@@ -33,9 +33,9 @@ String id=request.getParameter("id").toString();
             while(resultSet.next())
             {
                 id=resultSet.getString("id");
-               	usercode=resultSet.getString("usercode");
+                usercode=resultSet.getString("usercode");
                 correspondence=resultSet.getString("correspondence");
-                profile=resultSet.getString("profile");
+               	profile=resultSet.getString("profile");
                 objective=resultSet.getString("objective");
             }
         }
@@ -87,7 +87,7 @@ String id=request.getParameter("id").toString();
             String delete_message= delete_prs_coresprofobj.delete_prs_coresprofobj();
             out.println("<script type = 'text/javascript'>");
             out.println("window.alert('Data Deleted sucessfully')");
-            out.println("window.location = 'usersetting.jsp?option=view&id=0'");
+            out.println("window.location = 'prs_coresprofobj.jsp?option=view&id=0'");
             out.println("</script>");
         }
     else if(request.getParameter("option").toString().contains("view"))
@@ -97,12 +97,12 @@ String id=request.getParameter("id").toString();
     <div class="card-body">
         <div class="table-responsive">
         <center>
-            <a href="prs_coresprofobj.jsp?option=add&id=0" >Add Correspondence/Profile and Objective Detail</a>
+            <a href="prs_coresprofobj.jsp?option=add&id=0" >Add User Detail</a>
         </center>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                         <th>Sl.N0</th>
+                        <th>Sl.No</th>
                         <th>usercode</th>
                         <th>correspondence</th>
                         <th>profile</th>
@@ -164,15 +164,15 @@ String id=request.getParameter("id").toString();
                 if(create_message.contains("1"))
                     {
                         out.println("<script type = 'text/javascript'>");
-                        out.println("window.alert('Correspondence/Profile and Objective Details saved sucessfully')");
-                        out.println("window.location = 'prs_coresprofobj.jsp?option=view&id=0'");
+                        out.println("window.alert('User Details saved sucessfully')");
+                        out.println("window.location ='prs_coresprofobj.jsp?option=view&id=0'");
                         out.println("</script>");
                     }
                 else
                     {
                         out.println("<script type = 'text/javascript'>");
-                        out.println("window.alert('Correspondence/Profile and Objective Details not saved')");
-                        out.println("window.location = 'prs_coresprofobj.jsp?option=view&id=0'");
+                        out.println("window.alert('User Details not saved')");
+                        out.println("window.location ='prs_coresprofobj.jsp?option=view&id=0'");
                         out.println("</script>");
                     }
             }

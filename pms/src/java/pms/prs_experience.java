@@ -11,19 +11,20 @@ import java.sql.ResultSet;
  */
 public class prs_experience extends dbclass {
 public String id;
-public String username;
-public String password;
-public String email; 
-public String mobileno; 
+public String user_code;
+public String companyname;
+public String fromdate; 
+public String todate; 
+public String designation; 
 public String create_prs_experience()
  {
-    String query="INSERT INTO `prs_experience`(`username`, `password`, `email`, `mobileno`) VALUES ('"+ username +"','"+ password +"','"+ email +"','"+ mobileno +"')";
+    String query="INSERT INTO `prs_experience`(`user_code`, `companyname`, `fromdate`, `todate`, `designation`) VALUES ('"+ user_code +"','"+ companyname +"','"+ fromdate +"','"+ todate +"','"+ designation +"')";
     String message=super.tableinsertupdatedelete(query);
     return message;
  }
  public String update_prs_experience()
  {
-    String query="UPDATE `prs_experience` SET `username`='"+ username +"',`password`='"+ password +"',`email`='"+ email +"',`mobileno`='"+ mobileno +"' WHERE id='"+ id+"'";
+    String query="UPDATE `prs_experience` SET `user_code`='"+ user_code +"',`companyname`='"+ companyname +"',`fromdate`='"+ fromdate +"',`todate`='"+ todate +"',`designation`='"+ designation +"' WHERE id='"+ id+"'";
     String message=super.tableinsertupdatedelete(query);
     return message;
  }
@@ -31,7 +32,7 @@ public String create_prs_experience()
 {
     return super.getfromtable("select * from prs_experience");
 }
- public ResultSet retrivewithid_usersetting()
+ public ResultSet retrivewithid_prs_experience()
 {
     return super.getfromtable("select * from prs_experience  WHERE id='"+ id +"'");
 }
