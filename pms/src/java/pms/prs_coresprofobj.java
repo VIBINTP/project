@@ -11,19 +11,19 @@ import java.sql.ResultSet;
  */
 public class prs_coresprofobj extends dbclass {
 public String id;
-public String usercode;
+public String user_code;
 public String correspondence;
 public String profile; 
 public String objective; 
 public String create_prs_coresprofobj()
  {
-    String query="INSERT INTO `prs_coresprofobj`(`usercode`, `correspondence`, `profile`, `objective`) VALUES ('"+ usercode +"','"+ correspondence +"','"+ profile +"','"+ objective +"')";
+    String query="INSERT INTO `prs_coresprofobj`(`user_code`, `correspondence`, `profile`, `objective`) VALUES ('"+ user_code +"','"+ correspondence +"','"+ profile +"','"+ objective +"')";
     String message=super.tableinsertupdatedelete(query);
     return message;
  }
  public String update_prs_coresprofobj()
  {
-    String query="UPDATE `prs_coresprofobj` SET `usercode`='"+ usercode +"',`correspondence`='"+ correspondence +"',`profile`='"+ profile +"',`	objective`='"+ objective +"' WHERE id='"+ id+"'";
+    String query="UPDATE `prs_coresprofobj` SET `user_code`='"+ user_code +"',`correspondence`='"+ correspondence +"',`profile`='"+ profile +"',`	objective`='"+ objective +"' WHERE id='"+ id+"'";
     String message=super.tableinsertupdatedelete(query);
     return message;
  }

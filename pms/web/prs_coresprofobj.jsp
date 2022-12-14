@@ -18,9 +18,9 @@
 <div class="row">
 <div class="col-lg-12"> 
 <%
-String usercode="";
+String user_code="";
 String correspondence="";
-String 	profile="";
+String profile="";
 String objective="";
 String id=request.getParameter("id").toString();
     if(request.getParameter("option").toString().contains("edit"))
@@ -32,10 +32,9 @@ String id=request.getParameter("id").toString();
             int sno=0;
             while(resultSet.next())
             {
-                id=resultSet.getString("id");
-                usercode=resultSet.getString("usercode");
+                user_code=resultSet.getString("user_code");
                 correspondence=resultSet.getString("correspondence");
-               	profile=resultSet.getString("profile");
+                profile=resultSet.getString("profile");
                 objective=resultSet.getString("objective");
             }
         }
@@ -46,15 +45,15 @@ String id=request.getParameter("id").toString();
 <form action="prs_coresprofobj.jsp?option=" method="post">
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <tr>
-            <td align="right">usercode:</td>
+            <td align="right">user_code:</td>
             <td>
-                <input  class="form-control form-control-user" type="text" name="usercode" value="<%=usercode%>" required=""/>
+                <input  class="form-control form-control-user" type="text" name="user_code" value="<%=user_code%>" required=""/>
             </td>
         </tr>
         <tr>
             <td align="right">correspondence:</td>
             <td>
-                <input  class="form-control form-control-user" type="text" name="correspondence" value="<%=correspondence%>" required=""/>
+                <input  class="form-control form-control-user" type="texte" name="correspondence" value="<%=correspondence%>" required=""/>
             </td>
         </tr>
         <tr>
@@ -103,7 +102,7 @@ String id=request.getParameter("id").toString();
                 <thead>
                     <tr>
                         <th>Sl.No</th>
-                        <th>usercode</th>
+                        <th>user_code</th>
                         <th>correspondence</th>
                         <th>profile</th>
                         <th>objective</th>
@@ -123,7 +122,7 @@ String id=request.getParameter("id").toString();
 %>
                         <tr>
                             <td><%=sno%></td>
-                            <td><%=resultSet.getString("usercode") %></td>
+                            <td><%=resultSet.getString("user_code") %></td>
                             <td><%=resultSet.getString("correspondence") %></td>
                             <td><%=resultSet.getString("profile") %></td>
                             <td><%=resultSet.getString("objective") %></td>
@@ -145,13 +144,12 @@ String id=request.getParameter("id").toString();
 %>
 <%
                 prs_coresprofobj create_prs_coresprofobj=new prs_coresprofobj();
-                create_prs_coresprofobj.usercode=request.getParameter("usercode");
+                create_prs_coresprofobj.user_code=request.getParameter("user_code");
                 create_prs_coresprofobj.correspondence=request.getParameter("correspondence");
                 create_prs_coresprofobj.profile=request.getParameter("profile");
                 create_prs_coresprofobj.objective=request.getParameter("objective");
                 create_prs_coresprofobj.id=request.getParameter("id");
                 String create_message="";
-                
                     if(create_prs_coresprofobj.id.equals("0"))
                         {
                             create_message=create_prs_coresprofobj.create_prs_coresprofobj();
@@ -160,19 +158,18 @@ String id=request.getParameter("id").toString();
                         {
                             create_message=create_prs_coresprofobj.update_prs_coresprofobj();
                         }
-          
                 if(create_message.contains("1"))
                     {
                         out.println("<script type = 'text/javascript'>");
                         out.println("window.alert('User Details saved sucessfully')");
-                        out.println("window.location ='prs_coresprofobj.jsp?option=view&id=0'");
+                        out.println("window.location = 'prs_coresprofobj.jsp?option=view&id=0'");
                         out.println("</script>");
                     }
                 else
                     {
                         out.println("<script type = 'text/javascript'>");
                         out.println("window.alert('User Details not saved')");
-                        out.println("window.location ='prs_coresprofobj.jsp?option=view&id=0'");
+                        out.println("window.location = 'prs_coresprofobj.jsp?option=view&id=0'");
                         out.println("</script>");
                     }
             }
