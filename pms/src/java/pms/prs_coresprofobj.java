@@ -23,7 +23,7 @@ public String create_prs_coresprofobj()
  }
  public String update_prs_coresprofobj()
  {
-    String query="UPDATE `prs_coresprofobj` SET `user_code`='"+ user_code +"',`correspondence`='"+ correspondence +"',`profile`='"+ profile +"',`	objective`='"+ objective +"' WHERE id='"+ id+"'";
+    String query="UPDATE `prs_coresprofobj` SET `user_code`='"+ user_code +"',`correspondence`='"+ correspondence +"',`profile`='"+ profile +"',`objective`='"+ objective +"' WHERE id='"+ id+"'";
     String message=super.tableinsertupdatedelete(query);
     return message;
  }
